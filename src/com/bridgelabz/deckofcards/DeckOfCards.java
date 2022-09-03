@@ -6,11 +6,12 @@ import java.util.Scanner;
 public class DeckOfCards {
     public static final Scanner scan = new Scanner(System.in);
     public ArrayList<String> cardsDeck = new ArrayList<>();
+    String[] suit = {"Clubs","Diamonds","Hearts","Spades"};
+    String[] rank = {"2","3","4","5","6","7","8","9","10","Jack", "Queen", "King", "Ace"};
+    int numOfCards = suit.length * rank.length;
 
     public void deckOfCards(){
-        String[] suit = {"Clubs","Diamonds","Hearts","Spades"};
-        String[] rank = {"Jack", "Queen", "King", "Ace","2","3","4","5","6","7","8","9","10"};
-        int numOfCards = suit.length * rank.length;
+
         System.out.println("Number of cards in deck : " +numOfCards);
         for(int i = 0; i < rank.length; i++){
             for(int j = 0; j < suit.length; j++){
@@ -50,8 +51,8 @@ public class DeckOfCards {
             cardsDeck.remove(random);
         }
         cardsDeck = temp;
-        toDisplay(cardsDeck); // To display the cards this method is called.
-        cardDistribution(cardsDeck, player); // Calling Card Distribution method inside this method
+        toDisplay(cardsDeck);
+        cardDistribution(cardsDeck, player);
         return cardsDeck;
     }
     public static void cardDistribution(ArrayList<String> cardsDeck, int player) {
@@ -64,5 +65,14 @@ public class DeckOfCards {
             }
         }
         System.out.println();
+    }
+    public void displayCardsInSequence(){
+        int counter = 0;
+        for(int i = 0; i < suit.length; i++){
+            for(int j = 0; j < rank.length; j++){
+                cardsDeck.add(suit[i] +"----"+ rank[j]);
+            }
+        }
+        System.out.println(cardsDeck);
     }
 }
