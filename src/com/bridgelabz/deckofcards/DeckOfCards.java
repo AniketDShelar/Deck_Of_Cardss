@@ -31,17 +31,17 @@ public class DeckOfCards {
         int player = scan.nextInt();
         if (player >= 2 && player <= 4) {
             System.out.println("\n" + player + " players will play the game");
-
+            sequenceOfPlay(player);
         } else {
             System.out.println("Please enter number of players in the Range");
             noOfPlayers();
         }
     }
-    public void sequenceOfPlay() {
+    public void sequenceOfPlay(int player) {
         System.out.println("\nSequence of cards are below : ");
-        toShuffle(cardsDeck);
+        toShuffle(cardsDeck, player);
     }
-    public static ArrayList<String> toShuffle(ArrayList<String> cardsDeck) {
+    public static ArrayList<String> toShuffle(ArrayList<String> cardsDeck, int player) {
         System.out.println("Shuffling the cards before Distribution");
         ArrayList<String> temp = new ArrayList<>();
         while (!cardsDeck.isEmpty()) {
@@ -51,6 +51,18 @@ public class DeckOfCards {
         }
         cardsDeck = temp;
         toDisplay(cardsDeck); // To display the cards this method is called.
+        cardDistribution(cardsDeck, player); // Calling Card Distribution method inside this method
         return cardsDeck;
+    }
+    public static void cardDistribution(ArrayList<String> cardsDeck, int player) {
+        // This loop will iterate for no of players
+        for (int i = 0; i < player; i++) {
+            System.out.print("\nPlayer " + (i + 1) + " got cards:\n");
+            // This loop will iterate for no of cards for each player
+            for (int j = 0; j < 9; j++) {
+                System.out.print("\t" + cardsDeck.get(i+j*player));
+            }
+        }
+        System.out.println();
     }
 }
