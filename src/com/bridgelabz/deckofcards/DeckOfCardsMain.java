@@ -8,7 +8,5 @@ public class DeckOfCardsMain {
         DeckOfCards deckOfCards = new DeckOfCards();
         deckOfCards.deckOfCards();
         deckOfCards.noOfPlayers();
-        deckOfCards.sequenceOfPlay();
-
     }
 }
