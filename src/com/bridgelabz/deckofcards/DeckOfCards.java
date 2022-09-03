@@ -36,6 +36,21 @@ public class DeckOfCards {
             System.out.println("Please enter number of players in the Range");
             noOfPlayers();
         }
-
+    }
+    public void sequenceOfPlay() {
+        System.out.println("\nSequence of cards are below : ");
+        toShuffle(cardsDeck);
+    }
+    public static ArrayList<String> toShuffle(ArrayList<String> cardsDeck) {
+        System.out.println("Shuffling the cards before Distribution");
+        ArrayList<String> temp = new ArrayList<>();
+        while (!cardsDeck.isEmpty()) {
+            int random = (int) (Math.random() * cardsDeck.size());
+            temp.add(cardsDeck.get(random));
+            cardsDeck.remove(random);
+        }
+        cardsDeck = temp;
+        toDisplay(cardsDeck); // To display the cards this method is called.
+        return cardsDeck;
     }
 }
