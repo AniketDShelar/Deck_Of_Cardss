@@ -26,4 +26,16 @@ public class DeckOfCards {
         }
         System.out.println();
     }
+    public void noOfPlayers() {
+        System.out.print("\nEnter number of players minimum 2 , maximum 4 : ");
+        int player = scan.nextInt();
+        if (player >= 2 && player <= 4) {
+            System.out.println("\n" + player + " players will play the game");
+
+        } else {
+            System.out.println("Please enter number of players in the Range");
+            noOfPlayers();
+        }
+
+    }
 }
